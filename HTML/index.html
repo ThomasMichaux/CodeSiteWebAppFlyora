@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Flyora Airlines - Experience premium travel with comfort, luxury, and exceptional service to over 200 destinations worldwide. Book your flight today.">
+    <meta name="keywords" content="airline, flights, premium travel, business class, flight booking">
+    <title>Flyora - Premium Airline Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="Main navigation">
+                <div class="nav-brand">
+                    <a href="#" class="logo" aria-label="Flyora Airlines Home">
+                        <span class="logo-text">FLYORA</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#booking" class="nav-link">Book</a></li>
+                    <li class="nav-item"><a href="#destinations" class="nav-link">Destinations</a></li>
+                    <li class="nav-item"><a href="#loyalty" class="nav-link">Loyalty</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#support" class="nav-link">Support</a></li>
+                    <li class="nav-item auth-buttons">
+                        <button class="btn btn-secondary" id="loginBtn" aria-label="Login to your account">Login</button>
+                        <button class="btn btn-primary" id="signupBtn" aria-label="Sign up for new account">Sign Up</button>
+                    </li>
+                </ul>
+                <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Experience Premium Travel</h1>
+                <p class="hero-subtitle">Fly with comfort, luxury, and exceptional service to over 200 destinations worldwide</p>
+                <button class="btn btn-primary btn-large" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">Book Your Flight</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flight Search -->
+    <section class="flight-search" id="booking">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-tabs" role="tablist" aria-label="Flight search type">
+                    <button class="tab-btn active" data-tab="round-trip" role="tab" aria-selected="true" aria-controls="flight-search-panel">Round Trip</button>
+                    <button class="tab-btn" data-tab="one-way" role="tab" aria-selected="false" aria-controls="flight-search-panel">One Way</button>
+                    <button class="tab-btn" data-tab="multi-city" role="tab" aria-selected="false" aria-controls="flight-search-panel">Multi-City</button>
+                </div>
+                <form class="search-form" id="flightSearchForm" role="search" aria-label="Search for flights">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="from">From</label>
+                            <input type="text" id="from" placeholder="City or airport" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="to">To</label>
+                            <input type="text" id="to" placeholder="City or airport" required aria-required="true">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="departure">Departure</label>
+                            <input type="date" id="departure" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="return">Return</label>
+                            <input type="date" id="return">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="passengers">Passengers</label>
+                            <select id="passengers" aria-label="Select number of passengers">
+                                <option value="1">1 Passenger</option>
+                                <option value="2">2 Passengers</option>
+                                <option value="3">3 Passengers</option>
+                                <option value="4">4 Passengers</option>
+                                <option value="5">5+ Passengers</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="class">Class</label>
+                            <select id="class" aria-label="Select travel class">
+                                <option value="economy">Economy</option>
+                                <option value="premium">Premium Economy</option>
+                                <option value="business">Business</option>
+                                <option value="first">First Class</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-search">Search Flights</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations -->
+    <section class="destinations" id="destinations">
+        <div class="container">
+            <h2 class="section-title">Popular Destinations</h2>
+            <div class="destinations-grid">
+                <!-- Tokyo - Tokyo Tower -->
+                <article class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tokyo Tower illuminated at night in Tokyo" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3>Tokyo</h3>
+                        <p>From $699</p>
+                        <button class="btn btn-secondary" aria-label="Explore flights to Tokyo">Explore</button>
+                    </div>
+                </article>
+                
+                <!-- Bangkok - Wat Arun -->
+                <article class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wat Arun Temple at sunset in Bangkok" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3>Bangkok</h3>
+                        <p>From $349</p>
+                        <button class="btn btn-secondary" aria-label="Explore flights to Bangkok">Explore</button>
+                    </div>
+                </article>
+                
+                <!-- Singapore - Marina Bay Sands -->
+                <article class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1565967511849-76a60a516170?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Marina Bay Sands hotel and skyline in Singapore" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3>Singapore</h3>
+                        <p>From $479</p>
+                        <button class="btn btn-secondary" aria-label="Explore flights to Singapore">Explore</button>
+                    </div>
+                </article>
+                
+                <!-- Kuala Lumpur - Petronas Towers -->
+                <article class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1508062878650-88b52897f298?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Petronas Twin Towers illuminated at night in Kuala Lumpur" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3>Kuala Lumpur</h3>
+                        <p>From $429</p>
+                        <button class="btn btn-secondary" aria-label="Explore flights to Kuala Lumpur">Explore</button>
+                    </div>
+                </article>
+                
+                <!-- Beijing - Great Wall -->
+                <article class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="The Great Wall of China winding through mountains near Beijing" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3>Beijing</h3>
+                        <p>From $449</p>
+                        <button class="btn btn-secondary" aria-label="Explore flights to Beijing">Explore</button>
+                    </div>
+                </article>
+                
+                <!-- Seoul - N Seoul Tower -->
+                <article class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1534274867514-d5b47ef89ed7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="N Seoul Tower on Namsan Mountain overlooking Seoul cityscape" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3>Seoul</h3>
+                        <p>From $599</p>
+                        <button class="btn btn-secondary" aria-label="Explore flights to Seoul">Explore</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Premium Services</h2>
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury airport lounge with comfortable seating" loading="lazy">
+                    </div>
+                    <h3>Luxury Lounges</h3>
+                    <p>Relax in our exclusive airport lounges with premium amenities, gourmet food, and dedicated service</p>
+                </article>
+                <article class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1556386737-ae9b1e8faa12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business class lie-flat seats" loading="lazy">
+                    </div>
+                    <h3>Lie-Flat Seats</h3>
+                    <p>Experience ultimate comfort with our fully flat beds in business class for restful sleep</p>
+                </article>
+                <article class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gourmet airline meal presentation" loading="lazy">
+                    </div>
+                    <h3>Gourmet Dining</h3>
+                    <p>Enjoy chef-curated meals with fine wines and champagne served on premium china</p>
+                </article>
+                <article class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="In-flight entertainment system" loading="lazy">
+                    </div>
+                    <h3>Entertainment</h3>
+                    <p>Access thousands of movies, shows and music on your personal high-definition screen</p>
+                </article>
+                <article class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury airport transfer vehicle" loading="lazy">
+                    </div>
+                    <h3>Premium Transfers</h3>
+                    <p>Luxury airport transfers with dedicated chauffeur service in premium vehicles</p>
+                </article>
+                <article class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1565689228864-2c3d63f83f81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business class workstation" loading="lazy">
+                    </div>
+                    <h3>Business Facilities</h3>
+                    <p>In-flight workstations, power outlets, and high-speed connectivity for productive travel</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loyalty Program -->
+    <section class="loyalty" id="loyalty">
+        <div class="container">
+            <h2 class="section-title">Flyora Rewards</h2>
+            <div class="loyalty-content">
+                <div class="loyalty-text">
+                    <p>Join our loyalty program and earn miles on every flight. Enjoy exclusive benefits, priority services, and access to premium experiences.</p>
+                    <ul class="benefits-list">
+                        <li>Earn miles on every flight</li>
+                        <li>Priority check-in and boarding</li>
+                        <li>Extra baggage allowance</li>
+                        <li>Access to exclusive lounges</li>
+                        <li>Complimentary upgrades</li>
+                        <li>Flexible reward redemption</li>
+                    </ul>
+                    <button class="btn btn-primary">Join Now</button>
+                </div>
+                <div class="loyalty-visual">
+                    <div class="tier-cards">
+                        <article class="tier-card bronze">
+                            <div class="tier-overlay"></div>
+                            <div class="tier-content">
+                                <h4>Bronze</h4>
+                                <p>From 10,000 miles</p>
+                                <ul class="tier-benefits">
+                                    <li>Priority check-in</li>
+                                    <li>Extra 10kg baggage</li>
+                                    <li>Lounge access (discounted)</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="tier-card silver">
+                            <div class="tier-overlay"></div>
+                            <div class="tier-content">
+                                <h4>Silver</h4>
+                                <p>From 25,000 miles</p>
+                                <ul class="tier-benefits">
+                                    <li>All Bronze benefits</li>
+                                    <li>Priority boarding</li>
+                                    <li>Extra 20kg baggage</li>
+                                    <li>Complimentary lounge access</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="tier-card gold">
+                            <div class="tier-overlay"></div>
+                            <div class="tier-content">
+                                <h4>Gold</h4>
+                                <p>From 50,000 miles</p>
+                                <ul class="tier-benefits">
+                                    <li>All Silver benefits</li>
+                                    <li>Complimentary upgrades</li>
+                                    <li>Extra 30kg baggage</li>
+                                    <li>Fast track security</li>
+                                    <li>Premium lounge access</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="support">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Flyora</h3>
+                    <p>Experience premium travel with exceptional service to destinations worldwide.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#booking">Book a Flight</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#loyalty">Loyalty Program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Baggage Information</a></li>
+                        <li><a href="#">Flight Status</a></li>
+                        <li><a href="#">Travel Advisories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Customer Service: 1-800-FLY-ORA</li>
+                        <li>Email: support@flyora.com</li>
+                        <li>Corporate Office: 123 Aviation Way, New York, NY</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Flyora Airlines. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <button class="close" aria-label="Close modal">&times;</button>
+            <h2 id="modal-title" class="sr-only">Authentication</h2>
+            <div class="auth-tabs" role="tablist" aria-label="Authentication options">
+                <button class="auth-tab active" data-tab="login" role="tab" aria-selected="true" aria-controls="loginForm">Login</button>
+                <button class="auth-tab" data-tab="signup" role="tab" aria-selected="false" aria-controls="signupForm">Sign Up</button>
+            </div>
+            <form class="auth-form" id="loginForm" aria-labelledby="login-title">
+                <h3 id="login-title" class="sr-only">Login Form</h3>
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required aria-required="true" autocomplete="email">
+                    <span class="error-message" id="loginEmailError" role="alert"></span>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required aria-required="true" autocomplete="current-password">
+                    <span class="error-message" id="loginPasswordError" role="alert"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <form class="auth-form hidden" id="signupForm" aria-labelledby="signup-title">
+                <h3 id="signup-title" class="sr-only">Sign Up Form</h3>
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required aria-required="true" autocomplete="name">
+                    <span class="error-message" id="signupNameError" role="alert"></span>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required aria-required="true" autocomplete="email">
+                    <span class="error-message" id="signupEmailError" role="alert"></span>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required aria-required="true" autocomplete="new-password" minlength="8">
+                    <span class="error-message" id="signupPasswordError" role="alert"></span>
+                    <small class="form-hint">Minimum 8 characters</small>
+                </div>
+                <div class="form-group">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" required aria-required="true" autocomplete="new-password">
+                    <span class="error-message" id="signupConfirmPasswordError" role="alert"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification hidden" id="notification" role="alert" aria-live="polite"></div>  
+    <script src="../JavaScript/script.js"></script>
+
+</body>
+</html>
