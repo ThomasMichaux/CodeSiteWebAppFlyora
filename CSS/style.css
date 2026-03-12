@@ -1,4 +1,4 @@
-/* CSS Variables */
+/* ===== BASE STYLES ===== */
 :root {
     --primary-color: #0056b3;
     --primary-dark: #004494;
@@ -20,7 +20,6 @@
     --transition: all 0.3s ease;
 }
 
-/* Reset & Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -46,35 +45,14 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
 }
 
-h1 {
-    font-size: 2.5rem;
-}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
 
-h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.5rem;
-}
-
-p {
-    margin-bottom: 1rem;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
+p { margin-bottom: 1rem; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; }
 
 .container {
     width: 100%;
@@ -83,7 +61,6 @@ img {
     padding: 0 1rem;
 }
 
-/* Screen Reader Only Class */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -96,7 +73,7 @@ img {
     border-width: 0;
 }
 
-/* Buttons */
+/* ===== UTILITIES ===== */
 .btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -112,20 +89,14 @@ img {
     min-width: 44px;
 }
 
-.btn:focus {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
-}
+.btn:focus { outline: 3px solid var(--accent-color); outline-offset: 2px; }
 
 .btn-primary {
     background-color: var(--primary-color);
     color: var(--text-white);
 }
 
-.btn-primary:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-2px);
-}
+.btn-primary:hover { background-color: var(--primary-dark); }
 
 .btn-secondary {
     background-color: transparent;
@@ -138,17 +109,13 @@ img {
     color: var(--text-white);
 }
 
-.btn-large {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-}
+.btn-large { padding: 1rem 2rem; font-size: 1.1rem; }
+.btn-search { width: 100%; margin-top: 1rem; }
 
-.btn-search {
-    width: 100%;
-    margin-top: 1rem;
-}
+/* Utility for common hover lift effect */
+.hover-lift:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
 
-/* Header & Navigation */
+/* ===== HEADER ===== */
 .header {
     position: fixed;
     top: 0;
@@ -173,10 +140,7 @@ img {
     color: var(--primary-color);
 }
 
-.logo:focus {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
-}
+.logo:focus { outline: 3px solid var(--accent-color); outline-offset: 2px; }
 
 .nav-menu {
     display: flex;
@@ -191,14 +155,8 @@ img {
     position: relative;
 }
 
-.nav-link:hover {
-    color: var(--primary-color);
-}
-
-.nav-link:focus {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
-}
+.nav-link:hover { color: var(--primary-color); }
+.nav-link:focus { outline: 3px solid var(--accent-color); outline-offset: 2px; }
 
 .nav-link::after {
     content: '';
@@ -211,14 +169,9 @@ img {
     transition: var(--transition);
 }
 
-.nav-link:hover::after {
-    width: 100%;
-}
+.nav-link:hover::after { width: 100%; }
 
-.auth-buttons {
-    display: flex;
-    gap: 1rem;
-}
+.auth-buttons { display: flex; gap: 1rem; }
 
 .hamburger {
     display: none;
@@ -229,10 +182,7 @@ img {
     padding: 0.5rem;
 }
 
-.hamburger:focus {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
-}
+.hamburger:focus { outline: 3px solid var(--accent-color); outline-offset: 2px; }
 
 .bar {
     width: 25px;
@@ -242,7 +192,7 @@ img {
     transition: var(--transition);
 }
 
-/* Hero Section */
+/* ===== HERO ===== */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80');
     background-size: cover;
@@ -252,21 +202,11 @@ img {
     margin-top: 70px;
 }
 
-.hero-content {
-    max-width: 600px;
-}
+.hero-content { max-width: 600px; }
+.hero-title { font-size: 3rem; margin-bottom: 1.5rem; }
+.hero-subtitle { font-size: 1.2rem; margin-bottom: 2rem; }
 
-.hero-title {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-/* Flight Search */
+/* ===== FLIGHT SEARCH ===== */
 .flight-search {
     padding: 4rem 0;
     background-color: var(--bg-light);
@@ -296,15 +236,8 @@ img {
     border-bottom: 3px solid transparent;
 }
 
-.tab-btn:focus {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
-}
-
-.tab-btn.active {
-    color: var(--primary-color);
-    border-bottom-color: var(--primary-color);
-}
+.tab-btn:focus { outline: 3px solid var(--accent-color); outline-offset: 2px; }
+.tab-btn.active { color: var(--primary-color); border-bottom-color: var(--primary-color); }
 
 .search-form {
     display: flex;
@@ -312,11 +245,7 @@ img {
     gap: 1.5rem;
 }
 
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 
 .form-group {
     display: flex;
@@ -324,10 +253,7 @@ img {
     position: relative;
 }
 
-.form-group label {
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
+.form-group label { margin-bottom: 0.5rem; font-weight: 500; }
 
 .form-group input,
 .form-group select {
@@ -360,23 +286,12 @@ img {
     display: none;
 }
 
-.error-message.show {
-    display: block;
-}
+.error-message.show { display: block; }
+.form-group input.error { border-color: var(--error-color); }
 
-.form-group input.error {
-    border-color: var(--error-color);
-}
-
-/* Destinations */
-.destinations {
-    padding: 4rem 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-}
+/* ===== DESTINATIONS ===== */
+.destinations { padding: 4rem 0; }
+.section-title { text-align: center; margin-bottom: 3rem; }
 
 .destinations-grid {
     display: grid;
@@ -390,17 +305,16 @@ img {
     box-shadow: var(--shadow);
     overflow: hidden;
     transition: var(--transition);
+    contain: layout style; /* Performance optimization */
 }
 
-.destination-card:hover {
+.destination-card:hover,
+.destination-card:focus-within {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
 }
 
-.destination-card:focus-within {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
-}
+.destination-card:focus-within { outline: 3px solid var(--accent-color); outline-offset: 2px; }
 
 .card-image {
     height: 200px;
@@ -414,24 +328,13 @@ img {
     transition: var(--transition);
 }
 
-.destination-card:hover .card-image img {
-    transform: scale(1.1);
-}
+.destination-card:hover .card-image img { transform: scale(1.1); }
 
-.card-content {
-    padding: 1.5rem;
-}
+.card-content { padding: 1.5rem; }
+.card-content h3 { margin-bottom: 0.5rem; }
+.card-content p { margin-bottom: 1rem; color: var(--text-light); }
 
-.card-content h3 {
-    margin-bottom: 0.5rem;
-}
-
-.card-content p {
-    margin-bottom: 1rem;
-    color: var(--text-light);
-}
-
-/* Services */
+/* ===== SERVICES ===== */
 .services {
     padding: 4rem 0;
     background-color: var(--bg-light);
@@ -452,23 +355,14 @@ img {
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    contain: layout style; /* Performance optimization */
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
+.service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
 
-.service-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
+.service-icon { font-size: 3rem; margin-bottom: 1rem; }
+.service-card h3 { margin-bottom: 1rem; }
 
-.service-card h3 {
-    margin-bottom: 1rem;
-}
-
-/* Service Images */
 .service-image {
     height: 150px;
     overflow: hidden;
@@ -483,11 +377,9 @@ img {
     transition: var(--transition);
 }
 
-.service-card:hover .service-image img {
-    transform: scale(1.1);
-}
+.service-card:hover .service-image img { transform: scale(1.1); }
 
-/* Loyalty Program */
+/* ===== LOYALTY ===== */
 .loyalty {
     padding: 4rem 0;
     background-color: var(--bg-light);
@@ -508,7 +400,6 @@ img {
     justify-content: center;
 }
 
-/* Loyalty Text avec image de fond d'avion premium */
 .loyalty-text {
     padding: 2rem;
     border-radius: var(--border-radius);
@@ -522,10 +413,7 @@ img {
     color: var(--text-white);
 }
 
-.benefits-list {
-    margin: 2rem 0;
-}
-
+.benefits-list { margin: 2rem 0; }
 .benefits-list li {
     margin-bottom: 0.5rem;
     padding-left: 1.5rem;
@@ -540,7 +428,6 @@ img {
     font-weight: bold;
 }
 
-/* Tier Cards Container */
 .tier-cards {
     display: flex;
     flex-direction: column;
@@ -549,7 +436,6 @@ img {
     justify-content: center;
 }
 
-/* Base Tier Card avec images de fond */
 .tier-card {
     padding: 1.5rem;
     border-radius: var(--border-radius);
@@ -565,14 +451,11 @@ img {
     background-position: center;
     min-height: 150px;
     transition: var(--transition);
+    contain: layout style; /* Performance optimization */
 }
 
-.tier-card:hover {
-    transform: translateX(5px);
-    box-shadow: var(--shadow-lg);
-}
+.tier-card:hover { transform: translateX(5px); box-shadow: var(--shadow-lg); }
 
-/* Overlay pour améliorer la lisibilité */
 .tier-overlay {
     position: absolute;
     top: 0;
@@ -583,12 +466,8 @@ img {
     transition: var(--transition);
 }
 
-.tier-content {
-    position: relative;
-    z-index: 2;
-}
+.tier-content { position: relative; z-index: 2; }
 
-/* Bronze Tier - Avion economy/standard */
 .tier-card.bronze {
     background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
     color: var(--text-white);
@@ -598,7 +477,6 @@ img {
     background: linear-gradient(135deg, rgba(205, 127, 50, 0.85), rgba(183, 110, 42, 0.85));
 }
 
-/* Silver Tier - Avion business class */
 .tier-card.silver {
     background-image: url('https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
     color: var(--text-white);
@@ -608,7 +486,6 @@ img {
     background: linear-gradient(135deg, rgba(192, 192, 192, 0.85), rgba(168, 168, 168, 0.85));
 }
 
-/* Gold Tier - First class luxury */
 .tier-card.gold {
     background-image: url('https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
     color: var(--text-dark);
@@ -631,19 +508,12 @@ img {
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.tier-benefits {
-    text-align: left;
-    margin-top: 1rem;
-}
+.tier-benefits { text-align: left; margin-top: 1rem; }
 
 .tier-card.bronze .tier-benefits,
-.tier-card.silver .tier-benefits {
-    color: rgba(255, 255, 255, 0.95);
-}
+.tier-card.silver .tier-benefits { color: rgba(255, 255, 255, 0.95); }
 
-.tier-card.gold .tier-benefits {
-    color: rgba(51, 51, 51, 0.95);
-}
+.tier-card.gold .tier-benefits { color: rgba(51, 51, 51, 0.95); }
 
 .tier-benefits li {
     margin-bottom: 0.35rem;
@@ -653,14 +523,9 @@ img {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
-.tier-benefits li::before {
-    content: '\2022';
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-}
+.tier-benefits li::before { content: '\2022'; position: absolute; left: 0; font-weight: bold; }
 
-/* Footer */
+/* ===== FOOTER ===== */
 .footer {
     background-color: var(--text-dark);
     color: var(--text-white);
@@ -675,28 +540,17 @@ img {
 }
 
 .footer-section h3,
-.footer-section h4 {
-    margin-bottom: 1rem;
-    color: var(--text-white);
-}
+.footer-section h4 { margin-bottom: 1rem; color: var(--text-white); }
 
-.footer-section ul li {
-    margin-bottom: 0.5rem;
-}
+.footer-section ul li { margin-bottom: 0.5rem; }
 
 .footer-section a {
     color: #cccccc;
     transition: var(--transition);
 }
 
-.footer-section a:hover {
-    color: var(--text-white);
-}
-
-.footer-section a:focus {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
-}
+.footer-section a:hover { color: var(--text-white); }
+.footer-section a:focus { outline: 3px solid var(--accent-color); outline-offset: 2px; }
 
 .footer-bottom {
     text-align: center;
@@ -705,7 +559,7 @@ img {
     color: #cccccc;
 }
 
-/* Modal */
+/* ===== MODALS AND NOTIFICATIONS ===== */
 .modal {
     display: none;
     position: fixed;
@@ -741,14 +595,8 @@ img {
     padding: 0.5rem;
 }
 
-.close:hover {
-    color: var(--text-dark);
-}
-
-.close:focus {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
-}
+.close:hover { color: var(--text-dark); }
+.close:focus { outline: 3px solid var(--accent-color); outline-offset: 2px; }
 
 .auth-tabs {
     display: flex;
@@ -767,27 +615,12 @@ img {
     border-bottom: 3px solid transparent;
 }
 
-.auth-tab:focus {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
-}
+.auth-tab:focus { outline: 3px solid var(--accent-color); outline-offset: 2px; }
+.auth-tab.active { color: var(--primary-color); border-bottom-color: var(--primary-color); }
 
-.auth-tab.active {
-    color: var(--primary-color);
-    border-bottom-color: var(--primary-color);
-}
+.auth-form { display: flex; flex-direction: column; gap: 1.5rem; }
+.hidden { display: none; }
 
-.auth-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Notification */
 .notification {
     position: fixed;
     top: 100px;
@@ -803,24 +636,11 @@ img {
     transition: transform 0.3s ease;
 }
 
-.notification-success {
-    background-color: #28a745;
-}
+.notification-success { background-color: #28a745; }
+.notification-error { background-color: #dc3545; }
+.notification-info { background-color: #0056b3; }
+.notification-warning { background-color: #ffc107; color: #333; }
 
-.notification-error {
-    background-color: #dc3545;
-}
-
-.notification-info {
-    background-color: #0056b3;
-}
-
-.notification-warning {
-    background-color: #ffc107;
-    color: #333;
-}
-
-/* Skip Link for Accessibility */
 .skip-link {
     position: absolute;
     top: -40px;
@@ -832,36 +652,18 @@ img {
     z-index: 100;
 }
 
-.skip-link:focus {
-    top: 0;
-}
+.skip-link:focus { top: 0; }
 
-/* Responsive Styles */
+/* ===== MEDIA QUERIES ===== */
 @media (max-width: 1024px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .loyalty-content {
-        gap: 2rem;
-    }
-    
-    /* Tablet: 2 destinations per row */
-    .destinations-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    /* Tablet: 2 services per row */
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .hero-title { font-size: 2.5rem; }
+    .loyalty-content { gap: 2rem; }
+    .destinations-grid { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-    
+    .hamburger { display: flex; }
     .nav-menu {
         position: fixed;
         top: 70px;
@@ -875,115 +677,43 @@ img {
         transition: var(--transition);
         gap: 1.5rem;
     }
-    
-    .nav-menu.active {
-        left: 0;
-    }
-    
-    .auth-buttons {
-        flex-direction: column;
-        width: 100%;
-        padding: 0 2rem;
-    }
-    
-    .auth-buttons .btn {
-        width: 100%;
-    }
-    
-    .hero {
-        padding: 8rem 0 4rem;
-    }
-    
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .loyalty-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-    
-    .loyalty-text, .loyalty-visual {
-        width: 100%;
-    }
-    
-    .tier-cards {
-        flex-direction: row;
-        overflow-x: auto;
-        gap: 1rem;
-    }
-    
-    .tier-card {
-        min-width: 200px;
-        flex-shrink: 0;
-    }
+    .nav-menu.active { left: 0; }
+    .auth-buttons { flex-direction: column; width: 100%; padding: 0 2rem; }
+    .auth-buttons .btn { width: 100%; }
+    .hero { padding: 8rem 0 4rem; }
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .loyalty-content { flex-direction: column; gap: 2rem; }
+    .loyalty-text, .loyalty-visual { width: 100%; }
+    .tier-cards { flex-direction: row; overflow-x: auto; gap: 1rem; }
+    .tier-card { min-width: 200px; flex-shrink: 0; }
 }
 
 @media (max-width: 576px) {
-    .container {
-        padding: 0 0.5rem;
-    }
-    
-    .hero {
-        padding: 6rem 0 3rem;
-    }
-    
-    .hero-title {
-        font-size: 1.75rem;
-    }
-    
-    .search-container {
-        padding: 1.5rem;
-    }
-    
-    .search-tabs {
-        flex-direction: column;
-    }
-    
+    .container { padding: 0 0.5rem; }
+    .hero { padding: 6rem 0 3rem; }
+    .hero-title { font-size: 1.75rem; }
+    .search-container { padding: 1.5rem; }
+    .search-tabs { flex-direction: column; }
     .tab-btn {
         text-align: left;
         border-bottom: 1px solid var(--border-color);
         border-left: 3px solid transparent;
     }
-    
-    .tab-btn.active {
-        border-bottom-color: var(--border-color);
-        border-left-color: var(--primary-color);
-    }
-    
-    /* Mobile: 1 destination per row */
-    .destinations-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    /* Mobile: 1 service per row */
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .tier-cards {
-        flex-direction: column;
-    }
-    
-    .tier-card {
-        min-width: auto;
-        width: 100%;
-    }
+    .tab-btn.active { border-bottom-color: var(--border-color); border-left-color: var(--primary-color); }
+    .destinations-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .footer-content { grid-template-columns: 1fr; }
+    .tier-cards { flex-direction: column; }
+    .tier-card { min-width: auto; width: 100%; }
 }
 
-/* Prefers Reduced Motion */
+@media print {
+    .hero, .modal, .notification { display: none; }
+    body { background: white; color: black; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -995,13 +725,7 @@ img {
     }
 }
 
-/* High Contrast Mode Support */
 @media (prefers-contrast: high) {
-    .btn {
-        border: 2px solid currentColor;
-    }
-    
-    .nav-link::after {
-        height: 3px;
-    }
+    .btn { border: 2px solid currentColor; }
+    .nav-link::after { height: 3px; }
 }
