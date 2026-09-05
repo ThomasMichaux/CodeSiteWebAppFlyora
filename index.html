@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Flyora - Premium airline booking experience. Search and book flights to over 200 destinations worldwide.">
+    <meta name="theme-color" content="#0056b3">
+    <meta name="color-scheme" content="light">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: https://images.unsplash.com; connect-src 'none'; form-action 'self'; base-uri 'self'">
+    <title>Flyora - Premium Airline Experience</title>
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Flyora">
+    <meta property="og:title" content="Flyora - Premium Airline Experience">
+    <meta property="og:description"
+        content="A front-end portfolio demonstration: flight search, seat selection and a five-step booking flow, built with no framework and no build step.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1529947327457-8f5cb53bc1b6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+    <meta property="og:image:alt" content="Airliner wing above the clouds">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Flyora - Premium Airline Experience">
+    <meta name="twitter:description"
+        content="A front-end portfolio demonstration: flight search, seat selection and a five-step booking flow.">
+    <meta name="twitter:image"
+        content="https://images.unsplash.com/photo-1529947327457-8f5cb53bc1b6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%230056b3' width='32' height='32' rx='6'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='white' font-size='16' font-weight='bold'%3EF%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://images.unsplash.com">
+
+    <link rel="preload" as="image"
+        href="https://images.unsplash.com/photo-1529947327457-8f5cb53bc1b6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/utilities.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/print.css" media="print">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="brand" aria-label="Flyora - Go to homepage">
+                <span class="brand-logo" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                        </path>
+                    </svg>
+                </span>
+                <span class="brand-name">FLYORA</span>
+            </a>
+
+            <nav class="nav" aria-label="Main navigation">
+                <ul class="nav-list" id="main-nav">
+                    <li><a href="#book" class="nav-link" data-section="book">Book</a></li>
+                    <li><a href="#destinations" class="nav-link" data-section="destinations">Destinations</a></li>
+                    <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+                    <li><a href="#support" class="nav-link" data-section="support">Support</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-backdrop" aria-hidden="true"></div>
+
+            <div class="header-actions">
+                <div class="auth-container">
+                    <button class="btn btn-secondary btn-small" type="button" id="auth-btn">Sign In</button>
+                    <div class="user-menu hidden" id="user-menu">
+                        <button class="user-menu-toggle" id="user-menu-toggle" type="button" aria-expanded="false"
+                            aria-controls="user-dropdown" aria-label="Account">
+                            <span class="user-avatar" id="user-avatar" aria-hidden="true">DU</span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                                stroke-width="2" aria-hidden="true">
+                                <path d="M3 5l3 3 3-3" />
+                            </svg>
+                        </button>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <div class="user-dropdown-header">
+                                <span class="user-dropdown-name" id="user-display-name">User</span>
+                                <span class="user-dropdown-email" id="user-display-email">user@example.com</span>
+                            </div>
+                            <div class="user-dropdown-divider"></div>
+                            <button class="user-dropdown-item" id="sign-out-btn" type="button">Sign Out</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false"
+                    aria-controls="main-nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" class="main">
+
+        <noscript>
+            <div class="container">
+                <div class="alert alert-warning my-xl">
+                    <p><strong>JavaScript is required.</strong> Flyora is a front-end demonstration: flight search,
+                        seat selection and the booking flow all run in the browser. Enable JavaScript to try them.</p>
+                </div>
+            </div>
+        </noscript>
+
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <h1 id="hero-title" class="hero-title">Experience Premium Travel</h1>
+                <p class="hero-subtitle">Discover world-class service to over 200 destinations. Comfort, luxury, and
+                    exceptional hospitality await.</p>
+            </div>
+        </section>
+
+        <section id="book" class="section" aria-labelledby="search-title">
+            <div class="container">
+                <h2 id="search-title" class="section-title">Book Your Flight</h2>
+
+                <div class="card card-padding">
+                    <form id="flight-search" novalidate>
+                        <div class="tabs-container mb-xl">
+                            <div class="tabs" role="radiogroup" aria-label="Trip type">
+                                <button type="button" class="tab tab-btn active" role="radio" aria-checked="true"
+                                    tabindex="0" data-tab="round-trip">Round Trip</button>
+                                <button type="button" class="tab tab-btn" role="radio" aria-checked="false"
+                                    tabindex="-1" data-tab="one-way">One Way</button>
+                            </div>
+                        </div>
+
+                        <div class="search-form-grid">
+                            <div class="search-row">
+                                <div class="form-group">
+                                    <label for="origin" class="form-label">From</label>
+                                    <select id="origin" class="form-input form-select" required aria-required="true">
+                                        <option value="">Select departure</option>
+                                    </select>
+                                    <span class="form-error" role="alert"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="destination" class="form-label">To</label>
+                                    <select id="destination" class="form-input form-select" required
+                                        aria-required="true">
+                                        <option value="">Select destination</option>
+                                    </select>
+                                    <span class="form-error" role="alert"></span>
+                                </div>
+                            </div>
+
+                            <div class="search-row">
+                                <div class="form-group">
+                                    <label for="departure-date" class="form-label">Departure</label>
+                                    <input type="date" id="departure-date" class="form-input" required
+                                        aria-required="true">
+                                    <span class="form-error" role="alert"></span>
+                                </div>
+
+                                <div class="form-group" id="return-field">
+                                    <label for="return-date" class="form-label">Return</label>
+                                    <input type="date" id="return-date" class="form-input" required
+                                        aria-required="true">
+                                    <span class="form-error" role="alert"></span>
+                                </div>
+                            </div>
+
+                            <div class="search-row-3">
+                                <div class="form-group">
+                                    <label for="passengers" class="form-label">Passengers</label>
+                                    <select id="passengers" class="form-input form-select">
+                                        <option value="1">1 Adult</option>
+                                        <option value="2">2 Adults</option>
+                                        <option value="3">3 Adults</option>
+                                        <option value="4">4 Adults</option>
+                                        <option value="5">5 Adults</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cabin" class="form-label">Cabin Class</label>
+                                    <select id="cabin" class="form-input form-select">
+                                        <option value="economy">Economy</option>
+                                        <option value="premium">Premium Economy</option>
+                                        <option value="business">Business</option>
+                                        <option value="first">First Class</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group d-flex items-end">
+                                    <button type="submit" class="btn btn-primary btn-large w-full">Search
+                                        Flights</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="loading-state" class="section hidden" aria-labelledby="loading-title" role="status"
+            aria-live="polite">
+            <div class="container">
+                <div class="loading-container">
+                    <div class="spinner spinner-large" aria-hidden="true"></div>
+                    <p id="loading-title" class="loading-text">Searching for the best flights...</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="flight-results" class="section hidden" aria-labelledby="results-title">
+            <div class="container">
+                <div class="step-header results-header">
+                    <div>
+                        <h2 id="results-title" class="step-title">Available Flights</h2>
+                        <p class="step-subtitle">Select your preferred flight from the options below</p>
+                    </div>
+                    <button type="button" class="btn btn-secondary" id="back-to-search-btn">Modify Search</button>
+                </div>
+
+                <div id="flights-list" class="flights-grid">
+                </div>
+
+                <div id="empty-state" class="empty-state hidden">
+                    <div class="empty-state-icon" aria-hidden="true">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                            </path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3 class="empty-state-title">No Flights Found</h3>
+                    <p class="empty-state-text">We couldn't find any flights matching your criteria. Please try
+                        adjusting your search.</p>
+                    <button type="button" class="btn btn-primary" id="modify-search-btn">Modify Search</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking-flow" class="section hidden" aria-labelledby="booking-title">
+            <div class="booking-wrapper">
+                <div class="step-header">
+                    <h2 id="booking-title" class="step-title">Complete Your Booking</h2>
+                    <p class="step-subtitle">Follow the steps below to finalize your reservation</p>
+                </div>
+
+                <div class="booking-progress" role="group" aria-label="Booking progress">
+                    <div class="progress-step active" aria-current="step">
+                        <span class="progress-step-number">1</span>
+                        <span class="progress-step-label">Review</span>
+                    </div>
+                    <div class="progress-connector" aria-hidden="true"></div>
+                    <div class="progress-step">
+                        <span class="progress-step-number">2</span>
+                        <span class="progress-step-label">Passengers</span>
+                    </div>
+                    <div class="progress-connector" aria-hidden="true"></div>
+                    <div class="progress-step">
+                        <span class="progress-step-number">3</span>
+                        <span class="progress-step-label">Seats</span>
+                    </div>
+                    <div class="progress-connector" aria-hidden="true"></div>
+                    <div class="progress-step">
+                        <span class="progress-step-number">4</span>
+                        <span class="progress-step-label">Payment</span>
+                    </div>
+                    <div class="progress-connector" aria-hidden="true"></div>
+                    <div class="progress-step">
+                        <span class="progress-step-number">5</span>
+                        <span class="progress-step-label">Confirm</span>
+                    </div>
+                </div>
+
+                <div class="booking-wrapper-inner">
+                    <div class="booking-content">
+                        <div id="step-1" class="step-content active" role="region" aria-labelledby="step1-title">
+                            <h3 id="step1-title" class="step-title">Review Your Flight</h3>
+
+                            <div class="card card-padding mb-xl">
+                                <div class="flex flex-between items-center mb-lg">
+                                    <div>
+                                        <span class="badge badge-primary" id="flight-badge">Economy</span>
+                                    </div>
+                                    <span class="text-sm text-muted" id="flight-airline">Flyora Air</span>
+                                </div>
+
+                                <div class="flight-card-main border-0 p-0">
+                                    <div class="flight-time-block">
+                                        <div class="flight-time" id="review-departure-time">08:00</div>
+                                        <div class="flight-code" id="review-origin">JFK</div>
+                                    </div>
+                                    <div class="flight-duration-block">
+                                        <div class="flight-duration" id="review-duration">5h 30m</div>
+                                        <div class="flight-stops" id="review-stops">Nonstop</div>
+                                        <div class="flight-route-line">
+                                            <div class="route-line"></div>
+                                        </div>
+                                    </div>
+                                    <div class="flight-time-block">
+                                        <div class="flight-time" id="review-arrival-time">13:30</div>
+                                        <div class="flight-code" id="review-destination">LAX</div>
+                                    </div>
+                                </div>
+
+                                <hr class="my-xl">
+
+                                <div class="grid grid-2 gap-lg">
+                                    <div>
+                                        <p class="text-sm text-muted mb-xs">Departure Date</p>
+                                        <p class="font-medium" id="review-departure-date">-</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-muted mb-xs">Return Date</p>
+                                        <p class="font-medium" id="review-return-date">-</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card card-padding">
+                                <h4 class="mb-lg">Flight Details</h4>
+                                <div class="grid grid-2 gap-lg text-sm">
+                                    <div>
+                                        <p class="text-muted mb-xs">Flight Number</p>
+                                        <p class="font-medium" id="review-flight-number">FL1001</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-muted mb-xs">Aircraft</p>
+                                        <p class="font-medium">Boeing 787 Dreamliner</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-muted mb-xs">Baggage Allowance</p>
+                                        <p class="font-medium">1 carry-on + 2 checked bags</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-muted mb-xs">In-flight Entertainment</p>
+                                        <p class="font-medium">Included</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-nav">
+                                <button type="button" class="btn btn-secondary btn-prev hidden" data-prev="1"
+                                    aria-label="Previous step">Back</button>
+                                <button type="button" class="btn btn-primary btn-next" data-next="2"
+                                    aria-label="Continue to passenger details">Continue</button>
+                            </div>
+                        </div>
+
+                        <div id="step-2" class="step-content" role="region" aria-labelledby="step2-title">
+                            <h3 id="step2-title" class="step-title">Passenger Details</h3>
+                            <p class="step-subtitle mb-xl">Please provide the following information for each passenger
+                            </p>
+
+                            <div id="passenger-forms">
+                            </div>
+
+                            <div class="step-nav">
+                                <button type="button" class="btn btn-secondary btn-prev" data-prev="1">Back</button>
+                                <button type="button" class="btn btn-primary btn-next" data-next="3">Continue</button>
+                            </div>
+                        </div>
+
+                        <div id="step-3" class="step-content" role="region" aria-labelledby="step3-title">
+                            <h3 id="step3-title" class="step-title">Select Your Seats</h3>
+                            <p class="step-subtitle mb-xl">Choose your preferred seat for a comfortable journey</p>
+
+                            <div class="seat-map-container">
+                                <div class="seat-legend">
+                                    <div class="seat-legend-item">
+                                        <div class="seat-legend-dot available"></div>
+                                        <span>Available</span>
+                                    </div>
+                                    <div class="seat-legend-item">
+                                        <div class="seat-legend-dot selected"></div>
+                                        <span>Selected</span>
+                                    </div>
+                                    <div class="seat-legend-item">
+                                        <div class="seat-legend-dot occupied"></div>
+                                        <span>Occupied</span>
+                                    </div>
+                                </div>
+
+                                <div class="cabin-section">
+                                    <h4 class="cabin-title">Economy Class</h4>
+                                    <div class="seats-grid" id="seat-map"></div>
+                                </div>
+                            </div>
+
+                            <div class="card card-padding mt-xl">
+                                <p class="text-sm text-muted mb-sm">Selected Seats:</p>
+                                <p id="selected-seats-display" class="font-medium" role="status" aria-live="polite">No
+                                    seats selected</p>
+                            </div>
+
+                            <div class="step-nav">
+                                <button type="button" class="btn btn-secondary btn-prev" data-prev="2">Back</button>
+                                <button type="button" class="btn btn-primary btn-next" data-next="4">Continue</button>
+                            </div>
+                        </div>
+
+                        <div id="step-4" class="step-content" role="region" aria-labelledby="step4-title">
+                            <h3 id="step4-title" class="step-title">Payment</h3>
+                            <p class="step-subtitle mb-xl">Enter your payment details to complete the booking</p>
+
+                            <div class="card card-padding">
+                                <form id="payment-form" data-validate novalidate>
+                                    <div class="form-group">
+                                        <label for="card-number" class="form-label">Card Number</label>
+                                        <input type="text" id="card-number" class="form-input" required
+                                            aria-required="true" data-validate-as="card-number" inputmode="numeric"
+                                            placeholder="4242 4242 4242 4242" maxlength="19" autocomplete="cc-number">
+                                        <span class="form-error" role="alert"></span>
+                                    </div>
+
+                                    <div class="grid grid-2 gap-lg">
+                                        <div class="form-group">
+                                            <label for="card-expiry" class="form-label">Expiry Date</label>
+                                            <input type="text" id="card-expiry" class="form-input" required
+                                                aria-required="true" data-validate-as="card-expiry" inputmode="numeric"
+                                                placeholder="MM/YY" maxlength="5" autocomplete="cc-exp">
+                                            <span class="form-error" role="alert"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="card-cvv" class="form-label">CVV</label>
+                                            <input type="text" id="card-cvv" class="form-input" required
+                                                aria-required="true" data-validate-as="card-cvv" inputmode="numeric"
+                                                placeholder="123" maxlength="4" autocomplete="cc-csc">
+                                            <span class="form-error" role="alert"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="card-name" class="form-label">Name on Card</label>
+                                        <input type="text" id="card-name" class="form-input" required
+                                            aria-required="true" placeholder="John Doe" autocomplete="cc-name">
+                                        <span class="form-error" role="alert"></span>
+                                    </div>
+
+                                    <div class="alert alert-warning mb-xl">
+                                        <p class="text-sm"><strong>Demo only.</strong> No payment is processed and
+                                            nothing is sent anywhere &mdash; please do not enter real card details.
+                                            Use the test number <strong>4242 4242 4242 4242</strong> with any future
+                                            expiry date and any three digits.</p>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="step-nav">
+                                <button type="button" class="btn btn-secondary btn-prev" data-prev="3">Back</button>
+                                <button type="button" class="btn btn-primary"
+                                    id="confirm-payment-btn">Complete Booking</button>
+                            </div>
+                        </div>
+
+                        <div id="step-5" class="step-content" role="region" aria-labelledby="step5-title">
+                            <div class="success-screen">
+                                <div class="success-icon" aria-hidden="true">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+
+                                <h3 id="step5-title" class="success-title">Booking Confirmed!</h3>
+                                <p class="success-text">Your flight has been successfully booked. A confirmation email
+                                    has been sent to your registered email address.</p>
+
+                                <div class="ticket-card" id="booking-ticket">
+                                    <div class="ticket-header">
+                                        <div class="brand flex items-center gap-sm text-white">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path
+                                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                                </path>
+                                            </svg>
+                                            <span>FLYORA</span>
+                                        </div>
+                                        <p class="text-sm mt-sm opacity-75">Electronic Ticket</p>
+                                    </div>
+
+                                    <div class="ticket-body">
+                                        <div class="text-center mb-xl">
+                                            <p class="text-sm text-muted mb-xs">Booking Reference</p>
+                                            <p class="text-2xl font-bold text-primary" id="booking-ref">FLY123456</p>
+                                        </div>
+
+                                        <div class="ticket-details">
+                                            <div class="ticket-detail">
+                                                <p class="ticket-detail-label">From</p>
+                                                <p class="ticket-detail-value" id="ticket-origin">JFK</p>
+                                            </div>
+                                            <div class="ticket-detail">
+                                                <p class="ticket-detail-label">To</p>
+                                                <p class="ticket-detail-value" id="ticket-destination">LAX</p>
+                                            </div>
+                                            <div class="ticket-detail">
+                                                <p class="ticket-detail-label">Date</p>
+                                                <p class="ticket-detail-value" id="ticket-date">-</p>
+                                            </div>
+                                            <div class="ticket-detail">
+                                                <p class="ticket-detail-label">Passengers</p>
+                                                <p class="ticket-detail-value" id="ticket-passengers">1</p>
+                                            </div>
+                                            <div class="ticket-detail">
+                                                <p class="ticket-detail-label">Seats</p>
+                                                <p class="ticket-detail-value" id="ticket-seats">-</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ticket-footer">
+                                        <p>Please arrive at the airport at least 3 hours before departure</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex gap-lg justify-center mt-xl">
+                                    <button type="button" class="btn btn-secondary" id="print-ticket-btn">Print
+                                        Ticket</button>
+                                    <button type="button" class="btn btn-primary" id="book-another-btn">Book Another
+                                        Flight</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="sidebar" aria-label="Booking summary">
+                        <h3 class="sidebar-title">Booking Summary</h3>
+
+                        <div class="booking-summary">
+                            <div class="summary-row">
+                                <span class="summary-label">From</span>
+                                <span class="summary-value" id="summary-origin">-</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">To</span>
+                                <span class="summary-value" id="summary-destination">-</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Departure</span>
+                                <span class="summary-value" id="summary-departure">-</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Return</span>
+                                <span class="summary-value" id="summary-return">-</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Passengers</span>
+                                <span class="summary-value" id="summary-passengers">1</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Class</span>
+                                <span class="summary-value" id="summary-class">Economy</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Seats</span>
+                                <span class="summary-value" id="summary-seats">-</span>
+                            </div>
+
+                            <hr class="summary-divider">
+
+                            <div class="summary-row summary-total">
+                                <span class="summary-label">Total</span>
+                                <span class="summary-value text-primary" id="summary-total">$0</span>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section id="destinations" class="section" aria-labelledby="destinations-title">
+            <div class="container">
+                <h2 id="destinations-title" class="section-title">Popular Destinations</h2>
+
+                <div class="grid grid-3 gap-xl">
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1683998083736-afba1f5c7008?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            srcset="https://images.unsplash.com/photo-1683998083736-afba1f5c7008?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 400w, https://images.unsplash.com/photo-1683998083736-afba1f5c7008?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 800w, https://images.unsplash.com/photo-1683998083736-afba1f5c7008?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
+                            alt="Tokyo Tower against clear blue sky" loading="lazy" width="600" height="400">
+                        <div class="card-body">
+                            <h3>Tokyo</h3>
+                            <p class="text-secondary">From $699</p>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1613672803979-a6edfc5a179b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            srcset="https://images.unsplash.com/photo-1613672803979-a6edfc5a179b?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 400w, https://images.unsplash.com/photo-1613672803979-a6edfc5a179b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 800w, https://images.unsplash.com/photo-1613672803979-a6edfc5a179b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
+                            alt="Wat Arun Temple on Chao Phraya River, Bangkok" loading="lazy" width="600" height="400">
+                        <div class="card-body">
+                            <h3>Bangkok</h3>
+                            <p class="text-secondary">From $549</p>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1732070090529-b835e5ddefb2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            srcset="https://images.unsplash.com/photo-1732070090529-b835e5ddefb2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 400w, https://images.unsplash.com/photo-1732070090529-b835e5ddefb2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 800w, https://images.unsplash.com/photo-1732070090529-b835e5ddefb2?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
+                            alt="Petronas Twin Towers illuminated at night, Kuala Lumpur" loading="lazy" width="600"
+                            height="400">
+                        <div class="card-body">
+                            <h3>Kuala Lumpur</h3>
+                            <p class="text-secondary">From $479</p>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1555921015-5532091f6026?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            srcset="https://images.unsplash.com/photo-1555921015-5532091f6026?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 400w, https://images.unsplash.com/photo-1555921015-5532091f6026?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 800w, https://images.unsplash.com/photo-1555921015-5532091f6026?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
+                            alt="Hanoi Train Street, Vietnam" loading="lazy" width="600" height="400">
+                        <div class="card-body">
+                            <h3>Hanoi</h3>
+                            <p class="text-secondary">From $599</p>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1685761341534-b155d516eb80?q=80&w=1178&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            srcset="https://images.unsplash.com/photo-1685761341534-b155d516eb80?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 400w, https://images.unsplash.com/photo-1685761341534-b155d516eb80?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 800w, https://images.unsplash.com/photo-1685761341534-b155d516eb80?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
+                            alt="N Seoul Tower against the sky, Seoul" loading="lazy" width="600" height="400">
+                        <div class="card-body">
+                            <h3>Seoul</h3>
+                            <p class="text-secondary">From $649</p>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1701025035679-074fefd88e73?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            srcset="https://images.unsplash.com/photo-1701025035679-074fefd88e73?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 400w, https://images.unsplash.com/photo-1701025035679-074fefd88e73?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 800w, https://images.unsplash.com/photo-1701025035679-074fefd88e73?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
+                            alt="Marina Bay Sands illuminated at night, Singapore" loading="lazy" width="600"
+                            height="400">
+                        <div class="card-body">
+                            <h3>Singapore</h3>
+                            <p class="text-secondary">From $479</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section" aria-labelledby="experience-title">
+            <div class="container">
+                <h2 id="experience-title" class="section-title">The Flyora Experience</h2>
+
+                <div class="grid grid-3 gap-xl">
+                    <div class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1653160354439-8b56e2f1f4b4?q=80&w=1154&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            srcset="https://images.unsplash.com/photo-1653160354439-8b56e2f1f4b4?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 400w, https://images.unsplash.com/photo-1653160354439-8b56e2f1f4b4?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 800w, https://images.unsplash.com/photo-1653160354439-8b56e2f1f4b4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
+                            alt="Modern airplane interior with comfortable seats" loading="lazy" width="600"
+                            height="400">
+                        <h3>Modern Fleet</h3>
+                        <p class="text-secondary">Travel on our state-of-the-art aircraft with the latest technology and
+                            comfort features.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1775883376447-655984a514bd?q=80&w=1139&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            srcset="https://images.unsplash.com/photo-1775883376447-655984a514bd?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 400w, https://images.unsplash.com/photo-1775883376447-655984a514bd?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 800w, https://images.unsplash.com/photo-1775883376447-655984a514bd?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
+                            alt="Gourmet in-flight meal presentation" loading="lazy" width="600" height="400">
+                        <h3>Gourmet Dining</h3>
+                        <p class="text-secondary">World-class cuisine prepared by renowned chefs, with options to suit
+                            every palate.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1588855273181-f35eb14ce38a?q=80&w=1243&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            srcset="https://images.unsplash.com/photo-1588855273181-f35eb14ce38a?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 400w, https://images.unsplash.com/photo-1588855273181-f35eb14ce38a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 800w, https://images.unsplash.com/photo-1588855273181-f35eb14ce38a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
+                            alt="Luxury airport lounge with comfortable seating" loading="lazy" width="600" height="400">
+                        <h3>Premium Lounges</h3>
+                        <p class="text-secondary">Relax in our exclusive airport lounges before your flight with premium
+                            amenities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="support" class="section" aria-labelledby="support-title">
+            <div class="container">
+                <h2 id="support-title" class="section-title">Need Help?</h2>
+
+                <div class="grid grid-3 gap-xl">
+                    <div class="card card-padding text-center">
+                        <h3 class="text-xl mb-md">24/7 Support</h3>
+                        <p class="text-secondary mb-lg">Our customer service team is available around the clock to
+                            assist you.</p>
+                        <button type="button" class="btn btn-secondary"
+                            data-demo-feature="Phone and live-chat support">Contact Support</button>
+                    </div>
+
+                    <div class="card card-padding text-center">
+                        <h3 class="text-xl mb-md">FAQs</h3>
+                        <p class="text-secondary mb-lg">Find answers to the most frequently asked questions about
+                            bookings.</p>
+                        <button type="button" class="btn btn-secondary"
+                            data-demo-feature="The FAQ library">View FAQs</button>
+                    </div>
+
+                    <div class="card card-padding text-center">
+                        <h3 class="text-xl mb-md">Manage Booking</h3>
+                        <p class="text-secondary mb-lg">Already have a booking? View, modify, or cancel your
+                            reservation.</p>
+                        <button type="button" class="btn btn-secondary"
+                            data-demo-feature="Booking management">My Trips</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">Flyora</h3>
+                    <p class="text-secondary text-sm py-xs">Premium airline serving over 200 destinations worldwide.</p>
+                </div>
+
+                <div>
+                    <h3 class="footer-title">Company</h3>
+                    <button type="button" class="footer-link" data-demo-feature="The About page">About Us</button>
+                    <button type="button" class="footer-link" data-demo-feature="The Careers page">Careers</button>
+                    <button type="button" class="footer-link" data-demo-feature="The Press page">Press</button>
+                </div>
+
+                <div>
+                    <h3 class="footer-title">Support</h3>
+                    <button type="button" class="footer-link" data-demo-feature="The Help Center">Help Center</button>
+                    <button type="button" class="footer-link" data-demo-feature="The contact form">Contact Us</button>
+                    <button type="button" class="footer-link" data-demo-feature="The baggage guide">Baggage</button>
+                </div>
+
+                <div>
+                    <h3 class="footer-title">Legal</h3>
+                    <button type="button" class="footer-link" data-demo-feature="The privacy policy">Privacy
+                        Policy</button>
+                    <button type="button" class="footer-link" data-demo-feature="The terms of use">Terms of Use</button>
+                    <button type="button" class="footer-link" data-demo-feature="The cookie notice">Cookies</button>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="footer-year">2026</span> Flyora. All rights reserved. Portfolio demonstration
+                    &mdash; not a real airline.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="auth-modal">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+            <div class="modal-header">
+                <h2 id="auth-modal-title" class="modal-title">Sign In</h2>
+                <button class="modal-close" type="button" aria-label="Close modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <form id="auth-form" novalidate>
+                    <div class="form-group hidden" id="name-field">
+                        <label for="auth-name" class="form-label">Full Name</label>
+                        <input type="text" id="auth-name" class="form-input" autocomplete="name" placeholder="John Doe">
+                        <span class="form-error" role="alert"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="auth-email" class="form-label">Email</label>
+                        <input type="email" id="auth-email" class="form-input" required autocomplete="email"
+                            placeholder="you@example.com">
+                        <span class="form-error" role="alert"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="auth-password" class="form-label">Password</label>
+                        <input type="password" id="auth-password" class="form-input" required
+                            autocomplete="current-password" placeholder="Enter your password">
+                        <span class="form-error" role="alert"></span>
+                    </div>
+
+                    <div class="form-group hidden" id="confirm-field">
+                        <label for="auth-confirm" class="form-label">Confirm Password</label>
+                        <input type="password" id="auth-confirm" class="form-input" autocomplete="new-password"
+                            placeholder="Confirm your password">
+                        <span class="form-error" role="alert"></span>
+                    </div>
+
+                    <div class="form-group" id="remember-field">
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="remember">
+                            <span>Remember me</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-full" id="auth-submit">Sign In</button>
+                </form>
+
+                <div class="auth-toggle">
+                    <p class="text-center text-sm">
+                        <span id="auth-toggle-text">Don't have an account?</span>
+                        <a href="#" class="text-primary" id="auth-toggle-link">Create one</a>
+                    </p>
+                    <p class="text-center text-xs text-muted mt-md" id="auth-demo-hint">
+                        Demo: demo@flyora.com / Demo123!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/utilities.js"></script>
+    <script src="/js/components.js"></script>
+    <script src="/js/layout.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

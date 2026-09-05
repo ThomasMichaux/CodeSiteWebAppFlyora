@@ -1,0 +1,97 @@
+@page {
+    margin: 16mm;
+}
+
+html,
+body {
+    height: auto;
+    font-size: 11pt;
+    color: #000000;
+    background: #FFFFFF;
+    overflow: visible;
+}
+
+.skip-link,
+.header,
+.nav-backdrop,
+.footer,
+.booking-progress,
+.step-nav,
+.sidebar,
+.modal-overlay,
+.notification-container,
+.loading-overlay,
+#loading-state,
+#print-ticket-btn,
+#book-another-btn {
+    display: none !important;
+}
+
+.main {
+    min-height: 0;
+    padding-top: 0;
+}
+
+.section,
+.booking-wrapper {
+    padding: 0;
+}
+
+.booking-wrapper-inner {
+    display: block;
+    padding: 0;
+}
+
+img {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+body:has(#step-5.active) .hero,
+body:has(#step-5.active) #book,
+body:has(#step-5.active) #destinations,
+body:has(#step-5.active) #experience,
+body:has(#step-5.active) #support,
+body:has(#step-5.active) .step-header {
+    display: none !important;
+}
+
+.success-screen {
+    padding: 0;
+}
+
+.success-icon,
+.success-text {
+    display: none;
+}
+
+.success-title {
+    margin-bottom: var(--space-lg);
+    font-size: 16pt;
+    text-align: center;
+}
+
+.ticket-card {
+    max-width: 100%;
+    margin: 0 auto;
+    border: 1pt solid #000000;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.ticket-details {
+    grid-template-columns: 1fr 1fr;
+}
+
+.ticket-header {
+    color: #FFFFFF;
+    background-color: var(--color-primary);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+}
+
+.ticket-footer {
+    background-color: #F2F2F2;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+}

@@ -1,0 +1,80 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn var(--transition-normal) ease-out forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.animate-fadeOut {
+    animation: fadeOut var(--transition-normal) ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.stagger-item {
+    opacity: 0;
+    animation: fadeInUp var(--transition-normal) ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+    .stagger-item {
+        opacity: 1;
+        animation-delay: 0ms !important;
+    }
+
+    .spinner {
+        border-top-color: var(--color-primary);
+        animation: none !important;
+    }
+
+    #destinations .card:hover,
+    #experience .feature-card:hover {
+        transform: none;
+    }
+}
